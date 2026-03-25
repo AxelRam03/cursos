@@ -31,7 +31,9 @@ window.LESSONS = {
   }
 };
 
+<!-- Firebase App (core) -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<!-- Firebase Auth -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
 <script src="src/js/data.js"></script>
 <script src="src/js/app.js"></script>
