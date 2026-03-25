@@ -2,7 +2,7 @@
 //  DevLearn — data.js  (cursos y lecciones)
 // ═══════════════════════════════════════════
 
-const COURSES = [
+window.COURSES = [
   {
     id:'python', title:'Python', icon:'🐍', tag:'Backend', category:'backend',
     color:'#4ade80', tagBg:'rgba(74,222,128,.12)', tagColor:'#4ade80',
@@ -220,7 +220,7 @@ const COURSES = [
 // ═══════════════════════════════════════════
 //  LESSON CONTENT
 // ═══════════════════════════════════════════
-const LESSONS = {
+window.LESSONS = {
 
   /* ──────── PYTHON ──────── */
   'py-01': {
