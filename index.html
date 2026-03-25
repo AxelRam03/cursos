@@ -40,9 +40,9 @@
 
 <!-- PREVIEW SOLO PARA NO LOGUEADOS -->
 <div id="preview-publico" style="display:block;max-width:600px;margin:80px auto 0 auto;padding:32px 24px;background:#181818;border-radius:16px;text-align:center;box-shadow:0 2px 24px #0002;">
-  <h2 style="font-size:2rem;color:#ffe066;margin-bottom:12px;">DevLearn</h2>
-  <p style="color:#ccc;font-size:1.1rem;margin-bottom:18px;">Aprende a programar gratis.<br>Accede a cursos, ejercicios y notificaciones IA.<br><b>Inicia sesión para ver el contenido completo.</b></p>
-  <button class="nav-cta" onclick="loginWithGoogle()">Empezar gratis →</button>
+  <h2 style="font-size:2.4rem;color:#ffe066;margin-bottom:18px;letter-spacing:-1px;font-weight:700;">DevLearn</h2>
+  <p style="color:#e8e8e8;font-size:1.18rem;margin-bottom:22px;line-height:1.7;max-width:420px;margin-left:auto;margin-right:auto;">Aprende a programar gratis.<br>Accede a <b>cursos, ejercicios y notificaciones IA</b>.<br><span style="color:#ffe066;font-weight:600;">Inicia sesión para ver el contenido completo.</span></p>
+  <button class="nav-cta" style="font-size:1.1rem;padding:14px 36px;border-radius:10px;background:#ffe066;color:#181818;font-weight:700;box-shadow:0 2px 12px #ffe06633;transition:.2s;" onclick="loginWithGoogle()">Empezar gratis →</button>
 </div>
 
 <!-- CONTENIDO SOLO PARA LOGUEADOS -->
@@ -215,7 +215,7 @@ function actualizarVistaLogin(user, errorMsg) {
 </body>
 <!-- Copyright fijo al fondo -->
 <footer style="width:100vw;text-align:center;padding:18px 0 12px 0;background:#101010;color:#ffe066;position:fixed;left:0;bottom:0;z-index:999;font-size:14px;letter-spacing:.5px;box-shadow:0 -2px 12px #0003;">
-  © 2026 DevLearn. Inspirado en la experiencia de aprendizaje de Cursa y plataformas líderes. Todos los derechos reservados.
+  <span style="font-size:15px;font-weight:600;letter-spacing:0.5px;">© 2026 DevLearn</span> &nbsp;|&nbsp; Inspirado en la experiencia de aprendizaje de Cursa y plataformas líderes. Todos los derechos reservados.
 </footer>
 // Configuración de Firebase
 const firebaseConfig = {
