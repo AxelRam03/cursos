@@ -85,87 +85,18 @@
         <div class="panel-sub">Recibe correos personalizados generados por inteligencia artificial según tu progreso</div>
       </div>
     </div>
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('registro',this)">Registrarse</button>
-      <button class="tab" onclick="switchTab('enviar',this)">Enviar ahora</button>
-      <button class="tab" onclick="switchTab('historial',this)">Historial</button>
-      <button class="tab" onclick="switchTab('config',this)">Config</button>
-    </div>
-    <div id="tab-registro" class="tab-view active">
-      <div class="form-group">
-        <div class="form-label">Tu nombre <span>requerido</span></div>
-        <input class="form-input" id="reg-nombre" type="text" placeholder="Ej: Carlos Ramírez">
-      </div>
-      <div class="form-group">
-        <div class="form-label">Correo electrónico <span>requerido</span></div>
-        <input class="form-input" id="reg-email" type="email" placeholder="tu@correo.com">
-      </div>
-      <div class="divider"></div>
-      <div class="form-label" style="margin-bottom:12px">¿Qué correos quieres recibir?</div>
-      <div class="checks-grid">
-        <div class="check-item selected" onclick="toggleCheck(this,'weekly')"><div class="check-box">✓</div><div class="check-text"><h4>📊 Resumen semanal</h4><p>Tu avance de la semana cada lunes</p></div></div>
-        <div class="check-item selected" onclick="toggleCheck(this,'motivacion')"><div class="check-box">✓</div><div class="check-text"><h4>💪 Motivación</h4><p>Si llevas días sin estudiar</p></div></div>
-        <div class="check-item selected" onclick="toggleCheck(this,'completado')"><div class="check-box">✓</div><div class="check-text"><h4>🏆 Curso completado</h4><p>Al terminar cada curso</p></div></div>
-        <div class="check-item selected" onclick="toggleCheck(this,'sugerencia')"><div class="check-box">✓</div><div class="check-text"><h4>🎯 Sugerencias</h4><p>Qué estudiar según tu perfil</p></div></div>
-      </div>
-      <div class="divider"></div>
-      <div class="form-label" style="margin-bottom:10px">¿Cada cuántos días de inactividad recibir motivación?</div>
-      <div class="slider-wrap">
-        <span style="font-size:13px;color:var(--t2)">1 día</span>
-        <input class="slider" id="dias-slider" type="range" min="1" max="14" value="3" oninput="document.getElementById('dias-val').textContent=this.value+' días'">
-        <span class="slider-val" id="dias-val">3 días</span>
-      </div>
-      <div class="divider"></div>
-      <button class="btn-submit" id="btn-registrar" onclick="registrar()"><span>🚀 Activar notificaciones IA</span></button>
-      <div class="status-box" id="reg-status"></div>
-    </div>
-    <!-- Puedes agregar aquí las otras pestañas del panel IA si lo deseas -->
-  </div>
-</div>
-<div id="view-ruta" class="view">
-  <div class="ruta-container">
-    <h2 class="ruta-title">Mi Ruta de Aprendizaje</h2>
-    <p class="ruta-sub">Tu progreso guardado en este navegador.</p>
-    <div id="ruta-grid"></div>
-  </div>
-</div>
-
-<!-- COURSE VIEW -->
-<div id="view-course" class="view">
-  <div class="course-layout">
-    <aside class="sidebar" id="sidebar">
-      <div class="sb-header">
-        <button class="back-btn" onclick="showHome()">← Volver</button>
-        <div class="sb-title" id="sb-title">—</div>
-        <div class="sb-progress-text" id="sb-prog-text">0 / 0 lecciones</div>
-        <div class="sb-bar"><div class="sb-fill" id="sb-fill"></div></div>
-      </div>
-      <div class="sb-menu" id="sb-menu"></div>
-    </aside>
-    <main class="lesson-main" id="lesson-main"></main>
-  <!-- Ejemplo de video educativo en la primera lección de Python -->
-  <div id="video-leccion-python" style="display:none;margin:32px auto;max-width:640px;">
-    <h3 style="color:#ffe066;text-align:center;margin-bottom:12px;">Video recomendado: ¿Qué es una variable en Python?</h3>
-    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 2px 16px #0003;">
-      <iframe src="https://www.youtube.com/embed/kqtD5dpn9C8" title="Variables en Python" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- CERT MODAL -->
-<div id="cert-modal" onclick="if(event.target===this)closeCert()">
-  <div class="cert-paper">
-    <div class="cert-border"></div>
-    <button class="cert-close" onclick="closeCert()">✕</button>
-    <div class="cert-top">Certificado de Finalización</div>
-    <div class="cert-logo">dev/learn</div>
-    <div class="cert-body">Ha completado satisfactoriamente el curso</div>
-    <div class="cert-course" id="cert-name">—</div>
-    <div class="cert-desc">Este certificado acredita que el participante completó todas las lecciones y ejercicios prácticos del curso con dedicación.</div>
-    <div class="cert-footer">
-      <div class="cert-date" id="cert-date">—</div>
-      <button class="cert-dl" onclick="closeCert()">✓ Cerrar</button>
+    <script src="src/js/data.js"></script>
+    <script src="src/js/app.js"></script>
+    <!-- Firebase App (core) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    </body>
+    <!-- Copyright fijo al fondo -->
+    <footer style="width:100vw;text-align:center;padding:18px 0 12px 0;background:#101010;color:#ffe066;position:fixed;left:0;bottom:0;z-index:999;font-size:14px;letter-spacing:.5px;box-shadow:0 -2px 12px #0003;">
+      <span style="font-size:15px;font-weight:600;letter-spacing:0.5px;">© 2026 DevLearn</span> &nbsp;|&nbsp; Inspirado en la experiencia de aprendizaje de Cursa y plataformas líderes. Todos los derechos reservados.
+    </footer>
+    </html>
     </div>
   </div>
 </div>
