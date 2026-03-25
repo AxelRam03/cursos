@@ -27,16 +27,7 @@
   </div>
 </nav>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo" onclick="showHome()">dev<span>/</span>learn</div>
-  <div class="nav-links">
-    <button class="nav-link active" id="nav-cursos" onclick="showHome();setNav(this)">Cursos</button>
-    <button class="nav-link" id="nav-ruta" onclick="showRuta();setNav(this)">Mi Ruta</button>
-    <button class="nav-link" id="nav-notif" onclick="showNotif();setNav(this)">Notificaciones IA</button>
-  </div>
-  <button class="nav-cta" onclick="loginWithGoogle()">Empezar gratis →</button>
-</nav>
+
 
 <!-- PREVIEW SOLO PARA NO LOGUEADOS -->
 <div id="preview-publico" style="display:block;max-width:600px;margin:80px auto 0 auto;padding:32px 24px;background:#181818;border-radius:16px;text-align:center;box-shadow:0 2px 24px #0002;">
@@ -111,38 +102,7 @@
 <!-- Firebase Auth -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
 <script>
-// Mostrar/ocultar preview y contenido según login, y mostrar errores claros
-function actualizarVistaLogin(user, errorMsg) {
-  var preview = document.getElementById('preview-publico');
-  var privado = document.getElementById('contenido-privado');
-  var btnLogin = document.getElementById('btn-login-google');
-  var btnLogout = document.getElementById('btn-logout-google');
-  var errorDiv = document.getElementById('login-error-msg');
-  if (!errorDiv) {
-    errorDiv = document.createElement('div');
-    errorDiv.id = 'login-error-msg';
-    errorDiv.style = 'color:#f87171;background:#1a1a1a;padding:12px 18px;margin:18px auto 0 auto;max-width:420px;border-radius:8px;text-align:center;font-weight:600;display:none;';
-    document.body.insertBefore(errorDiv, document.body.firstChild);
-  }
-  if (user) {
-    if (preview) preview.style.display = 'none';
-    if (privado) privado.style.display = 'block';
-    if (btnLogin) btnLogin.style.display = 'none';
-    if (btnLogout) btnLogout.style.display = 'inline-block';
-    errorDiv.style.display = 'none';
-  } else {
-    if (preview) preview.style.display = 'block';
-    if (privado) privado.style.display = 'none';
-    if (btnLogin) btnLogin.style.display = 'inline-block';
-    if (btnLogout) btnLogout.style.display = 'none';
-    if (errorMsg) {
-      errorDiv.textContent = errorMsg;
-      errorDiv.style.display = 'block';
-    } else {
-      errorDiv.style.display = 'none';
-    }
-  }
-}
+
 </body>
 <!-- Copyright fijo al fondo -->
 <footer style="width:100vw;text-align:center;padding:18px 0 12px 0;background:#101010;color:#ffe066;position:fixed;left:0;bottom:0;z-index:999;font-size:14px;letter-spacing:.5px;box-shadow:0 -2px 12px #0003;">
