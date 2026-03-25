@@ -248,48 +248,14 @@ edad = 25
 año = 2025
 
 # float: números decimales
-precio = 19.99
-pi = 3.14159
-
-# str: texto (string)
-nombre = "Carlos"
-mensaje = 'Hola mundo'
-
-# bool: verdadero o falso
-activo = True
-es_admin = False
-
-# NoneType: ausencia de valor
-dato = None
-
-# Ver el tipo de cualquier variable
-print(type(edad))     # <class 'int'>
-print(type(nombre))   # <class 'str'>
-print(type(activo))   # <class 'bool'>
-
-# f-strings: la forma moderna de imprimir
-print(f"Hola, {nombre}. Tienes {edad} años.")`
-    },
-    callout: { type: 'tip', text: 'Las variables en Python se crean con solo escribir nombre = valor. Sin var, sin let, sin declarar tipo. ¡Así de simple!' },
-    extra: `
-<div class="prose">
-<h3>Conversión de tipos</h3>
-<p>Puedes convertir entre tipos usando funciones integradas:</p>
 </div>`,
     code2: { file:'conversion.py', starter:
 `# Convertir entre tipos
 numero_texto = "42"
 numero_entero = int(numero_texto)   # "42" → 42
-numero_decimal = float("3.14")     # "3.14" → 3.14
-texto = str(100)                    # 100 → "100"
-
-# input() siempre devuelve string
 # Por eso debes convertir:
-edad = int(input("¿Cuántos años tienes? "))
-print(f"El año que viene tendrás {edad + 1}")`
-    },
-    exercises: [
-      { num: 1, title: 'Ficha personal', diff: 'easy',
+
+};
         desc: 'Crea variables con tu nombre, edad, ciudad y si eres estudiante (bool). Luego imprímelas en una sola línea usando f-string.',
         starter: `# Tu código aquí
 nombre = ___
