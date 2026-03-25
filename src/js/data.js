@@ -1,394 +1,36 @@
+
 // ═══════════════════════════════════════════
-//  DevLearn — data.js  (cursos y lecciones)
+//  DevLearn — data.js  (estructura mínima válida)
 // ═══════════════════════════════════════════
 
 window.COURSES = [
   {
-    id:'python', title:'Python', icon:'🐍', tag:'Backend', category:'backend',
-    color:'#4ade80', tagBg:'rgba(74,222,128,.12)', tagColor:'#4ade80',
-    desc:'De cero a senior. Variables, funciones, POO, APIs, async, testing y proyectos reales.',
-    lessons:12, exercises:45, level:'Principiante → Senior',
-    modules:[
-      { label:'Fundamentos', items:[
-        {id:'py-01', title:'Variables y Tipos de Datos'},
-        {id:'py-02', title:'Operadores y Expresiones'},
-        {id:'py-03', title:'Condicionales (if/elif/else)'},
-        {id:'py-04', title:'Bucles for y while'},
-        {id:'py-05', title:'Funciones'},
-      ]},
-      { label:'Estructuras de Datos', items:[
-        {id:'py-06', title:'Listas y Comprensiones'},
-        {id:'py-07', title:'Diccionarios'},
-        {id:'py-08', title:'Tuplas y Sets'},
-      ]},
-      { label:'Nivel Avanzado', items:[
-        {id:'py-09', title:'Clases y POO'},
-        {id:'py-10', title:'Decoradores y Generadores'},
-        {id:'py-11', title:'APIs con requests'},
-        {id:'py-12', title:'Testing con pytest'},
-      ]},
+    id: 'javascript',
+    title: 'JavaScript',
+    icon: '⚡',
+    tag: 'Web',
+    category: 'web',
+    color: '#fbbf24',
+    tagBg: 'rgba(251,191,36,.12)',
+    tagColor: '#fbbf24',
+    desc: 'El lenguaje del navegador. DOM, ES6+, async/await, fetch y Node.js.',
+    lessons: 1,
+    exercises: 0,
+    level: 'Principiante',
+    modules: [
+      { label: 'Fundamentos', items: [ { id: 'js-01', title: 'var, let y const' } ] }
     ]
-  },
-  {
-    id:'javascript', title:'JavaScript', icon:'⚡', tag:'Web', category:'web',
-    color:'#fbbf24', tagBg:'rgba(251,191,36,.12)', tagColor:'#fbbf24',
-    desc:'El lenguaje del navegador. DOM, ES6+, async/await, fetch y Node.js.',
-    lessons:10, exercises:38, level:'Principiante → Avanzado',
-    modules:[
-      { label:'Fundamentos', items:[
-        {id:'js-01', title:'var, let y const'},
-        {id:'js-02', title:'Funciones y Arrow Functions'},
-        {id:'js-03', title:'Arrays y Objetos'},
-        {id:'js-04', title:'Destructuring y Spread'},
-      ]},
-      { label:'DOM y Browser', items:[
-        {id:'js-05', title:'Manipulación del DOM'},
-        {id:'js-06', title:'Eventos y Listeners'},
-        {id:'js-07', title:'Fetch y Promesas'},
-      ]},
-      { label:'JavaScript Moderno', items:[
-        {id:'js-08', title:'Async / Await'},
-        {id:'js-09', title:'Módulos ES6'},
-        {id:'js-10', title:'Introducción a Node.js'},
-      ]},
-    ]
-  },
-  {
-    id:'html', title:'HTML & CSS', icon:'🎨', tag:'Web', category:'web',
-    color:'#f87171', tagBg:'rgba(248,113,113,.12)', tagColor:'#f87171',
-    desc:'Estructura y estilo. Semántica HTML5, Flexbox, Grid, variables CSS y responsive.',
-    lessons:10, exercises:30, level:'Principiante',
-    modules:[
-      { label:'HTML5', items:[
-        {id:'html-01', title:'Estructura y Semántica'},
-        {id:'html-02', title:'Formularios y validación'},
-        {id:'html-03', title:'Tablas y Multimedia'},
-      ]},
-      { label:'CSS3', items:[
-        {id:'html-04', title:'Selectores y especificidad'},
-        {id:'html-05', title:'Box Model y Display'},
-        {id:'html-06', title:'Flexbox completo'},
-        {id:'html-07', title:'CSS Grid completo'},
-        {id:'html-08', title:'Animaciones y Transiciones'},
-      ]},
-      { label:'Responsive', items:[
-        {id:'html-09', title:'Media Queries'},
-        {id:'html-10', title:'Variables CSS y Temas'},
-      ]},
-    ]
-  },
-  {
-    id:'sql', title:'SQL', icon:'🗄️', tag:'Bases de datos', category:'db',
-    color:'#60a5fa', tagBg:'rgba(96,165,250,.12)', tagColor:'#60a5fa',
-    desc:'SELECT hasta procedimientos almacenados. PostgreSQL, MySQL y diseño de esquemas.',
-    lessons:10, exercises:40, level:'Principiante → Avanzado',
-    modules:[
-      { label:'Consultas Básicas', items:[
-        {id:'sql-01', title:'SELECT, WHERE, ORDER BY'},
-        {id:'sql-02', title:'INSERT, UPDATE, DELETE'},
-        {id:'sql-03', title:'Funciones de agregación'},
-      ]},
-      { label:'Relaciones', items:[
-        {id:'sql-04', title:'JOINS: INNER, LEFT, RIGHT'},
-        {id:'sql-05', title:'Subqueries'},
-        {id:'sql-06', title:'Diseño de tablas y FK'},
-      ]},
-      { label:'Avanzado', items:[
-        {id:'sql-07', title:'Índices y Performance'},
-        {id:'sql-08', title:'Vistas y CTEs'},
-        {id:'sql-09', title:'Transacciones'},
-        {id:'sql-10', title:'Procedimientos almacenados'},
-      ]},
-    ]
-  },
-  {
-    id:'kubernetes', title:'Kubernetes', icon:'⚙️', tag:'DevOps', category:'cloud',
-    color:'#818cf8', tagBg:'rgba(129,140,248,.12)', tagColor:'#818cf8',
-    desc:'Orquestación de contenedores. Pods, Deployments, Services, Helm y autoscaling.',
-    lessons:10, exercises:28, level:'Intermedio',
-    modules:[
-      { label:'Fundamentos', items:[
-        {id:'k8s-01', title:'Arquitectura de Kubernetes'},
-        {id:'k8s-02', title:'kubectl y kubeconfig'},
-        {id:'k8s-03', title:'Pods y Namespaces'},
-      ]},
-      { label:'Workloads', items:[
-        {id:'k8s-04', title:'Deployments y ReplicaSets'},
-        {id:'k8s-05', title:'Services e Ingress'},
-        {id:'k8s-06', title:'ConfigMaps y Secrets'},
-        {id:'k8s-07', title:'Persistent Volumes'},
-      ]},
-      { label:'Producción', items:[
-        {id:'k8s-08', title:'Helm: gestor de paquetes'},
-        {id:'k8s-09', title:'Autoscaling (HPA)'},
-        {id:'k8s-10', title:'Monitoring con Prometheus'},
-      ]},
-    ]
-  },
-  {
-    id:'azure', title:'Microsoft Azure', icon:'🌐', tag:'Cloud', category:'cloud',
-    color:'#38bdf8', tagBg:'rgba(56,189,248,.12)', tagColor:'#38bdf8',
-    desc:'VMs, App Service, AKS, Azure DevOps, ARM Templates y mucho más.',
-    lessons:10, exercises:24, level:'Principiante → Avanzado',
-    modules:[
-      { label:'Fundamentos', items:[
-        {id:'az-01', title:'Introducción a Azure'},
-        {id:'az-02', title:'Regiones, grupos y suscripciones'},
-        {id:'az-03', title:'Azure Active Directory'},
-      ]},
-      { label:'Cómputo y Red', items:[
-        {id:'az-04', title:'Virtual Machines'},
-        {id:'az-05', title:'App Service y Functions'},
-        {id:'az-06', title:'Redes virtuales y NSG'},
-      ]},
-      { label:'DevOps y Containers', items:[
-        {id:'az-07', title:'Azure Kubernetes Service (AKS)'},
-        {id:'az-08', title:'Azure Container Registry'},
-        {id:'az-09', title:'Azure DevOps Pipelines'},
-        {id:'az-10', title:'Monitor y Log Analytics'},
-      ]},
-    ]
-  },
-  {
-    id:'ocne', title:'Oracle Cloud Native', icon:'☁️', tag:'Cloud', category:'cloud',
-    color:'#f97316', tagBg:'rgba(249,115,22,.12)', tagColor:'#f97316',
-    desc:'OCI desde cero. Compute, Networking, OKE, Functions y observabilidad.',
-    lessons:8, exercises:20, level:'Intermedio',
-    modules:[
-      { label:'OCI Fundamentos', items:[
-        {id:'oci-01', title:'Introducción a OCI'},
-        {id:'oci-02', title:'Compute, Storage y Redes'},
-        {id:'oci-03', title:'IAM y Compartments'},
-      ]},
-      { label:'Cloud Native', items:[
-        {id:'oci-04', title:'OKE: Kubernetes en OCI'},
-        {id:'oci-05', title:'Container Registry'},
-        {id:'oci-06', title:'Functions y Serverless'},
-        {id:'oci-07', title:'API Gateway'},
-        {id:'oci-08', title:'Observability y Logging'},
-      ]},
-    ]
-  },
-  {
-    id:'weblogic', title:'Oracle WebLogic', icon:'🔧', tag:'Backend', category:'backend',
-    color:'#c084fc', tagBg:'rgba(192,132,252,.12)', tagColor:'#c084fc',
-    desc:'Servidor de aplicaciones Java EE. Instalación, dominios, clusters y administración.',
-    lessons:8, exercises:16, level:'Intermedio → Avanzado',
-    modules:[
-      { label:'Instalación y Dominios', items:[
-        {id:'wl-01', title:'Arquitectura de WebLogic'},
-        {id:'wl-02', title:'Instalación y Dominios'},
-        {id:'wl-03', title:'Admin Console'},
-      ]},
-      { label:'Despliegue y Config', items:[
-        {id:'wl-04', title:'Desplegar WAR y EAR'},
-        {id:'wl-05', title:'Data Sources y JDBC'},
-        {id:'wl-06', title:'Clusters y balanceo'},
-      ]},
-      { label:'Producción', items:[
-        {id:'wl-07', title:'Tuning y JVM'},
-        {id:'wl-08', title:'Seguridad y SSL'},
-      ]},
-    ]
-  },
-  {
-    id:'databases', title:'Bases de Datos', icon:'📊', tag:'Datos', category:'data',
-    color:'#34d399', tagBg:'rgba(52,211,153,.12)', tagColor:'#34d399',
-    desc:'PostgreSQL, MySQL, MongoDB, Redis. Teoría, diseño, optimización y ORMs.',
-    lessons:10, exercises:32, level:'Principiante → Avanzado',
-    modules:[
-      { label:'Relacionales', items:[
-        {id:'db-01', title:'Modelo relacional y normalización'},
-        {id:'db-02', title:'PostgreSQL: instalación y uso'},
-        {id:'db-03', title:'MySQL: diferencias clave'},
-      ]},
-      { label:'NoSQL', items:[
-        {id:'db-04', title:'MongoDB: documentos y colecciones'},
-        {id:'db-05', title:'Redis: caché y estructuras'},
-        {id:'db-06', title:'SQL vs NoSQL: cuándo usar cada uno'},
-      ]},
-      { label:'Diseño y Optimización', items:[
-        {id:'db-07', title:'Diseño de esquemas'},
-        {id:'db-08', title:'Índices y EXPLAIN'},
-        {id:'db-09', title:'Backups y replicación'},
-        {id:'db-10', title:'ORM: SQLAlchemy y Prisma'},
-      ]},
-    ]
-  },
+  }
 ];
 
-// ═══════════════════════════════════════════
-//  LESSON CONTENT
-// ═══════════════════════════════════════════
 window.LESSONS = {
-
-  /* ──────── PYTHON ──────── */
-  'py-01': {
-    title: 'Variables y Tipos de Datos',
-    subtitle: 'Todo programa empieza aquí. Aprende cómo Python guarda y clasifica la información.',
-    badges: ['Python 3.x', '~30 min', 'Principiante'],
-    html: `
-<div class="prose">
-<p>Una <strong>variable</strong> es un nombre que señala a un espacio en la memoria de tu computadora. Piensa en ella como una etiqueta pegada a un cajón: tú eliges el nombre, y adentro guardas el valor.</p>
-<p>Python es de <strong>tipado dinámico</strong>: no necesitas declarar el tipo de dato, Python lo detecta automáticamente cuando asignas el valor.</p>
-<h3>Los 5 tipos primitivos de Python</h3>
-<ul>
-<li><strong>int</strong>: números enteros (10, -5, 2024)</li>
-<li><strong>float</strong>: números decimales (3.14, -0.5)</li>
-<li><strong>str</strong>: texto ("Hola", 'Mundo')</li>
-<li><strong>bool</strong>: verdadero o falso (True, False)</li>
-<li><strong>NoneType</strong>: ausencia de valor (None)</li>
-</ul>
-</div>`,
-    code1: { file:'variables.py', starter:
-`# ── Tipos de datos en Python ──
-
-# int: números enteros
-edad = 25
-año = 2025
-
-# float: números decimales
-</div>`,
-    code2: { file:'conversion.py', starter:
-`# Convertir entre tipos
-numero_texto = "42"
-numero_entero = int(numero_texto)   # "42" → 42
-# Por eso debes convertir:
-
-};
-        desc: 'Crea variables con tu nombre, edad, ciudad y si eres estudiante (bool). Luego imprímelas en una sola línea usando f-string.',
-        starter: `# Tu código aquí
-nombre = ___
-edad = ___
-ciudad = ___
-es_estudiante = ___
-
-print(f"...")`,
-        solution: `nombre = "Ana"\nedad = 22\nciudad = "CDMX"\nes_estudiante = True\nprint(f"Soy {nombre}, tengo {edad} años, vivo en {ciudad}. ¿Estudiante? {es_estudiante}")`
-      },
-      { num: 2, title: 'Calculadora de IMC', diff: 'med',
-        desc: 'Pide al usuario su peso (kg) y altura (m). Calcula el IMC = peso / altura². Imprime el resultado con 2 decimales.',
-        starter: `peso = float(input("Peso en kg: "))
-altura = float(input("Altura en m: "))
-imc = ___
-print(f"Tu IMC es: {imc:.2f}")`,
-        solution: `peso = float(input("Peso en kg: "))\naltura = float(input("Altura en m: "))\nimc = peso / (altura ** 2)\nprint(f"Tu IMC es: {imc:.2f}")`
-      }
-    ]
-  },
-
-  /* ──────── JAVASCRIPT ──────── */
   'js-01': {
-    title: 'Variables en JavaScript: var, let, const',
-    subtitle: 'Entiende las diferencias entre las tres formas de declarar variables y cuándo usar cada una.',
-    badges: ['ES6+', '~25 min', 'Principiante'],
-    html: `<div class="prose"><p>JavaScript tiene tres palabras clave para declarar variables. Usarlas correctamente es lo primero que diferencia a un principiante de alguien que sabe lo que hace.</p><h3>let — la opción moderna para variables que cambian</h3></div>`,
-    code1: { file:'variables.js', starter:
-`// let — puede cambiar, scope de bloque
-let edad = 25;
-edad = 26;  // ✅ permitido
-
-// const — no puede reasignarse
-const PI = 3.14159;
-// PI = 3;  // ❌ TypeError
-
-// var — evítalo (scope raro, iza declaraciones)
-// var nombre = "Ana";  // funciona pero no recomendado
-
-// Tipos en JavaScript
-let numero = 42;          // number
-let decimal = 3.14;       // number (mismo tipo)
-let texto = "Hola";       // string
-let activo = true;        // boolean
-let vacio = null;         // null
-let sinDefinir;           // undefined
-let obj = { x: 1 };      // object
-
-// typeof para saber el tipo
-console.log(typeof numero);   // "number"
-console.log(typeof texto);    // "string"
-
-// Template literals (como f-strings en Python)
-let nombre = "Carlos";
-console.log(\`Hola, \${nombre}! Tienes \${edad} años.\`);`
-    },
-    callout: { type: 'warn', text: 'Regla práctica: usa const por defecto. Solo cambia a let cuando sepas que la variable va a cambiar. Nunca uses var en código nuevo.' },
-    exercises: [
-      { num: 1, title: 'Perfil de usuario', diff: 'easy',
-        desc: 'Declara variables con const y let para: nombre (no cambia), edad (puede cambiar), email (no cambia). Luego "cumple años" sumando 1 a edad e imprime todo con template literals.',
-        starter: `const nombre = ___
-let edad = ___
-const email = ___
-
-// Cumpleaños
-edad = ___
-
-console.log(\`\${nombre} (\${email}) ahora tiene \${edad} años\`)`,
-        solution: `const nombre = "Ana"\nlet edad = 25\nconst email = "ana@mail.com"\nedad = edad + 1\nconsole.log(\`\${nombre} (\${email}) ahora tiene \${edad} años\`)`
-      }
-    ]
-  },
-
-  /* ──────── HTML & CSS ──────── */
-  'html-01': {
-    title: 'Estructura y Semántica HTML5',
-    subtitle: 'Aprende a crear páginas web bien estructuradas y accesibles.',
-    badges: ['HTML5', '~20 min', 'Principiante'],
-    html: `<div class="prose"><p>HTML es el lenguaje de marcado que da estructura a la web. Usar etiquetas semánticas ayuda a que tu sitio sea accesible y fácil de mantener.</p><h3>Ejemplo de estructura básica</h3></div>`,
-    code1: { file:'index.html', starter:
-`<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>Mi primera página</title>
-  </head>
-  <body>
-    <header>
-      <h1>Bienvenido a DevLearn</h1>
-      <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Cursos</a>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Sobre el curso</h2>
-        <p>Aprende HTML desde cero.</p>
-      </section>
-    </main>
-    <footer>
-      <small>&copy; 2026 DevLearn</small>
-    </footer>
-  </body>
-</html>`
-    },
-    callout: { type: 'tip', text: 'Siempre usa etiquetas semánticas: <header>, <nav>, <main>, <section>, <footer>. Mejoran SEO y accesibilidad.' },
-    exercises: [
-      { num: 1, title: 'Tu primera web', diff: 'easy',
-        desc: 'Crea una página HTML con título, encabezado principal y un párrafo de bienvenida.',
-        starter: `<!-- Tu código aquí -->
-<html>
-  <head>
-    <title>___</title>
-  </head>
-  <body>
-    <h1>___</h1>
-    <p>___</p>
-  </body>
-</html>`,
-        solution: `<html>\n  <head>\n    <title>Mi web</title>\n  </head>\n  <body>\n    <h1>Hola mundo</h1>\n    <p>Bienvenido a mi web</p>\n  </body>\n</html>`
-      }
-    ]
-  },
-
-  /* ──────── SQL ──────── */
-  'sql-01': {
-    title: 'SELECT, WHERE y ORDER BY',
-    subtitle: 'Las tres cláusulas que usarás en el 80% de tus consultas SQL.',
-    badges: ['SQL', '~35 min', 'Principiante'],
-    html: `<div class="prose"><p>SQL (Structured Query Language) es el lenguaje para hablar con bases de datos relacionales. <strong>SELECT</strong> es la instrucción más usada: le dice a la base de datos qué datos quieres.</p><h3>Sintaxis básica</h3></div>`,
-    code1: { file:'consultas.sql', starter:
-`-- Seleccionar todas las columnas
+    id: 'js-01',
+    course: 'javascript',
+    title: 'var, let y const',
+    content: '<h2>Variables en JavaScript</h2><p>Aprende la diferencia entre <b>var</b>, <b>let</b> y <b>const</b>.</p>'
+  }
+};
 SELECT * FROM empleados;
 
 -- Seleccionar columnas específicas
@@ -436,130 +78,14 @@ ORDER BY ___ ___;`,
   },
 
   // ...puedes seguir agregando más lecciones y cursos aquí...
-
-};
-
-# ── f-strings: la forma moderna de imprimir ──
-print(f"Hola, {nombre}. Tienes {edad} años y el precio es ${precio}")` },
-    callout1: { type:'tip', text:"Las variables en Python se crean con solo escribir <strong>nombre = valor</strong>. Sin 'var', sin 'let', sin declarar tipo. ¡Así de simple!" },
-    html2: `<div class="prose"><h3>Convertir entre tipos (casting)</h3><p>A veces necesitas transformar un tipo en otro. Python tiene funciones integradas para esto:</p></div>`,
-    code2: { file:'casting.py', starter:
-`# str → int
-texto = "42"
-numero = int(texto)       # 42
-print(numero + 8)         # 50
-
-# int → float
-entero = 10
-decimal = float(entero)   # 10.0
-
-# número → str
-n = 100
-s = str(n)                # "100"
-
-# input() SIEMPRE devuelve str — por eso conviertes:
-# edad = int(input("¿Cuántos años tienes? "))
-# print(f"El próximo año tendrás {edad + 1}")` },
-    exercises: [
-      { num:1, title:'Ficha personal', diff:'easy',
-        desc:'Crea 4 variables: nombre (str), edad (int), altura (float) y es_estudiante (bool). Luego imprímelas todas en una sola línea usando f-string.',
-        starter:`nombre = ___
-edad = ___
-altura = ___
 es_estudiante = ___
-
-print(f"...")`,
-        solution:`nombre = "Ana"\nedad = 22\naltura = 1.68\nes_estudiante = True\nprint(f"Soy {nombre}, tengo {edad} años, mido {altura}m. ¿Estudiante? {es_estudiante}")` },
-      { num:2, title:'Calculadora de IMC', diff:'med',
-        desc:'Declara variables peso (kg) y altura (m). Calcula el IMC = peso / altura². Imprime el resultado con 2 decimales usando :.2f en el f-string.',
-        starter:`peso = 70.0
-altura = 1.75
-
 imc = ___
-print(f"Tu IMC es: {imc:___}")`,
-        solution:`peso = 70.0\naltura = 1.75\nimc = peso / (altura ** 2)\nprint(f"Tu IMC es: {imc:.2f}")` },
-    ]
-  },
-
-  'py-02': {
-    title: 'Operadores y Expresiones',
-    subtitle: 'Aprende a hacer cálculos, comparaciones y operaciones lógicas en Python.',
-    badges: ['Python 3.x', '~25 min', 'Principiante'],
-    html: `<div class="prose"><p>Los <strong>operadores</strong> son los símbolos que permiten operar sobre variables y valores. Hay 3 tipos principales que usarás todos los días.</p><h3>Operadores aritméticos</h3></div>`,
-    code1: { file:'operadores.py', starter:
-`a = 10
-b = 3
-
-print(a + b)    # Suma          → 13
-print(a - b)    # Resta         → 7
-print(a * b)    # Multiplicar   → 30
-print(a / b)    # División real → 3.333...
-print(a // b)   # División entera → 3
-print(a % b)    # Módulo (residuo) → 1
-print(a ** b)   # Potencia      → 1000
-
-# Operadores de asignación compuesta
-x = 10
+};
 x += 5    # x = x + 5  → 15
 x -= 3    # x = x - 3  → 12
 x *= 2    # x = x * 2  → 24
 print(x)` },
-    callout1: { type:'info', text:'El operador <strong>%</strong> (módulo) es muy útil para saber si un número es par: <em>n % 2 == 0</em> es True cuando n es par.' },
-    html2: `<div class="prose"><h3>Operadores de comparación y lógicos</h3><p>Siempre devuelven <strong>True</strong> o <strong>False</strong>:</p></div>`,
-    code2: { file:'comparaciones.py', starter:
-`x = 5
-
-# Comparación
-print(x == 5)   # ¿Igual?          → True
-print(x != 3)   # ¿Diferente?      → True
-print(x > 3)    # ¿Mayor que?      → True
-print(x < 3)    # ¿Menor que?      → False
-print(x >= 5)   # ¿Mayor o igual?  → True
-print(x <= 4)   # ¿Menor o igual?  → False
-
-# Lógicos: and, or, not
-edad = 20
-tiene_id = True
-
-print(edad >= 18 and tiene_id)   # True (los dos son True)
-print(edad < 18 or tiene_id)     # True (al menos uno es True)
-print(not tiene_id)              # False (invierte el valor)` },
-    exercises: [
-      { num:1, title:'Par o impar', diff:'easy',
-        desc:'Dado un número, usa el operador % para determinar si es par o impar. Imprime el resultado.',
-        starter:`numero = 17
-es_par = numero % 2 == ___
-print(f"{numero} es par: {es_par}")`,
-        solution:`numero = 17\nes_par = numero % 2 == 0\nprint(f"{numero} es par: {es_par}")` },
-      { num:2, title:'Calculadora de propina', diff:'med',
-        desc:'Calcula la propina de una cuenta. La propina es 15% si el servicio es bueno, 20% si es excelente. Usa variables y operadores para calcularlo.',
-        starter:`total = 850.0
-servicio_excelente = True
-
-propina_pct = 0.20 if servicio_excelente else ___
-propina = total * ___
 total_final = total + propina
-
-print(f"Cuenta: ${total:.2f}")
-print(f"Propina: ${propina:.2f}")
-print(f"Total: ${total_final:.2f}")`,
-        solution:`total = 850.0\nservicio_excelente = True\npropina_pct = 0.20 if servicio_excelente else 0.15\npropina = total * propina_pct\ntotal_final = total + propina\nprint(f"Cuenta: ${total:.2f}")\nprint(f"Propina: ${propina:.2f}")\nprint(f"Total: ${total_final:.2f}")` },
-    ]
-  },
-
-  'py-03': {
-    title: 'Condicionales: if, elif, else',
-    subtitle: 'Dale a tu programa la capacidad de tomar decisiones según las condiciones.',
-    badges: ['Python 3.x', '~30 min', 'Principiante'],
-    html: `<div class="prose"><p>Las <strong>condicionales</strong> permiten que tu programa ejecute diferentes bloques de código dependiendo de si una condición es verdadera o falsa. Son el mecanismo de "toma de decisiones" de cualquier programa.</p><h3>Estructura básica</h3></div>`,
-    code1: { file:'condicionales.py', starter:
-`edad = 17
-
-# if: se ejecuta si la condición es True
-if edad >= 18:
-    print("Eres mayor de edad")
-elif edad >= 13:
-    print("Eres adolescente")     # ← este se ejecuta
 else:
     print("Eres un niño")
 
@@ -567,7 +93,6 @@ else:
 tiene_trabajo = True
 if edad >= 18:
     if tiene_trabajo:
-        print("Mayor con trabajo")
     else:
         print("Mayor sin trabajo")
 
@@ -592,49 +117,8 @@ match dia:
         starter:`nota = 78
 
 if nota < 60:
-    print(___)
-elif nota < ___:
-    print("Suficiente")
-elif nota < ___:
-    print("Bien")
-else:
-    print(___)`,
-        solution:`nota = 78\nif nota < 60:\n    print("Reprobado")\nelif nota < 70:\n    print("Suficiente")\nelif nota < 85:\n    print("Bien")\nelse:\n    print("Excelente")` },
-      { num:2, title:'Calculadora de descuento', diff:'med',
-        desc:'Si el total supera $500 aplica 10% de descuento. Si supera $1000 aplica 20%. Si tiene código "VIP" aplica 30% adicional. Calcula el total final.',
-        starter:`total = 1200
-codigo = "VIP"
-
-if total > 1000:
-    descuento = 0.20
-elif total > 500:
     descuento = 0.10
-else:
     descuento = 0
-
-if codigo == "VIP":
-    descuento += ___
-
-final = total * (1 - descuento)
-print(f"Descuento: {descuento*100:.0f}%")
-print(f"Total final: ${final:.2f}")`,
-        solution:`total = 1200\ncodigo = "VIP"\nif total > 1000:\n    descuento = 0.20\nelif total > 500:\n    descuento = 0.10\nelse:\n    descuento = 0\nif codigo == "VIP":\n    descuento += 0.30\nfinal = total * (1 - descuento)\nprint(f"Descuento: {descuento*100:.0f}%")\nprint(f"Total final: ${final:.2f}")` },
-    ]
-  },
-
-  'py-04': {
-    title: 'Bucles: for y while',
-    subtitle: 'Repite bloques de código sin escribirlos mil veces. Los bucles son la potencia real de la programación.',
-    badges: ['Python 3.x', '~40 min', 'Principiante'],
-    html: `<div class="prose"><p>Un <strong>bucle</strong> (loop) ejecuta el mismo bloque de código repetidamente. Sin bucles, tendrías que escribir cada línea manualmente. Con ellos, puedes procesar millones de datos con pocas líneas.</p><h3>for — cuando sabes cuántas veces repetir</h3></div>`,
-    code1: { file:'bucles_for.py', starter:
-`# range(n) genera 0, 1, 2, ..., n-1
-for i in range(5):
-    print(f"Vuelta {i}")
-
-# range(inicio, fin)
-for i in range(1, 6):     # 1, 2, 3, 4, 5
-    print(i)
 
 # range(inicio, fin, paso)
 for i in range(0, 20, 5): # 0, 5, 10, 15
@@ -791,53 +275,13 @@ print(validar_password("ABCDEFG1"))     # True`,
     badges: ['Python 3.x', '~40 min', 'Principiante'],
     html: `<div class="prose"><p>Una <strong>lista</strong> almacena múltiples valores en orden, accesibles por su posición (índice). Son mutables: puedes agregar, quitar y cambiar elementos después de crearlas.</p><h3>Crear y acceder</h3></div>`,
     code1: { file:'listas.py', starter:
-`frutas = ["manzana", "pera", "uva", "mango", "kiwi"]
-
-# Acceso por índice (empieza en 0)
-print(frutas[0])     # manzana
-print(frutas[-1])    # kiwi (último)
-print(frutas[-2])    # mango (penúltimo)
-
-# Slicing: obtener una porción
-print(frutas[1:3])   # ['pera', 'uva']
-print(frutas[:2])    # ['manzana', 'pera']
-print(frutas[2:])    # ['uva', 'mango', 'kiwi']
-
-# Métodos principales
-frutas.append("fresa")    # agrega al final
-frutas.insert(0, "lima")  # inserta en posición 0
-frutas.remove("pera")     # elimina por valor
-eliminado = frutas.pop()  # elimina y devuelve el último
-frutas.sort()             # ordena en su lugar
-print(len(frutas))        # longitud
-
-# Buscar
-print("uva" in frutas)        # True
-print(frutas.index("mango"))  # posición de mango` },
+  // ...existing code...
+    },
     callout1: { type:'tip', text:'Los índices negativos en Python son un superpoder: <strong>lista[-1]</strong> es siempre el último elemento, <strong>lista[-2]</strong> el penúltimo, etc.' },
     html2: `<div class="prose"><h3>List Comprehensions — la forma pythónica</h3><p>Es una sintaxis compacta para crear listas a partir de otras. Es más rápida y más legible que un for tradicional:</p></div>`,
     code2: { file:'comprehensions.py', starter:
-`# Forma tradicional (más larga)
-cuadrados = []
-for i in range(1, 6):
-    cuadrados.append(i ** 2)
-
-# List comprehension (forma pythónica)
-cuadrados = [i ** 2 for i in range(1, 6)]
-print(cuadrados)   # [1, 4, 9, 16, 25]
-
-# Con filtro (if al final)
-pares = [i for i in range(20) if i % 2 == 0]
-print(pares)       # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
-
-# Transformar strings
-nombres = ["ana", "luis", "eva"]
-capitalizados = [n.capitalize() for n in nombres]
-print(capitalizados)   # ['Ana', 'Luis', 'Eva']
-
-# Filtrar y transformar a la vez
-numeros = [-3, -1, 0, 2, 4, 7, -5]
-positivos_dobles = [n * 2 for n in numeros if n > 0]
+  // ...existing code...
+    },
 print(positivos_dobles)   # [4, 8, 14]` },
     exercises: [
       { num:1, title:'Lista de cuadrados', diff:'easy',
