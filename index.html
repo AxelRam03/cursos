@@ -11,6 +11,7 @@
 </head>
 <body>
 
+
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo" onclick="showHome()">dev<span>/</span>learn</div>
@@ -18,13 +19,12 @@
     <button class="nav-link active" id="nav-cursos" onclick="showHome();setNav(this)">Cursos</button>
     <button class="nav-link" id="nav-ruta" onclick="showRuta();setNav(this)">Mi Ruta</button>
     <button class="nav-link" id="nav-notif" onclick="showNotif();setNav(this)">Notificaciones IA</button>
-  <!-- LOGIN GOOGLE -->
-  <div style="position:fixed;top:10px;right:10px;z-index:9999;">
+  </div>
+  <div style="margin-left:auto;display:flex;gap:8px">
     <button onclick="loginWithGoogle()" id="btn-login-google" style="padding:8px 16px;background:#fff;color:#222;border-radius:6px;border:none;font-weight:600;cursor:pointer;">Iniciar sesión con Google</button>
     <button onclick="logout()" id="btn-logout-google" style="padding:8px 16px;background:#ffe066;color:#222;border-radius:6px;border:none;font-weight:600;cursor:pointer;display:none;">Cerrar sesión</button>
+    <button class="nav-cta" onclick="loginWithGoogle()">Empezar gratis →</button>
   </div>
-  </div>
-  <button class="nav-cta" onclick="loginWithGoogle()">Empezar gratis →</button>
 </nav>
 
 <!-- NAV -->
@@ -143,6 +143,13 @@
       <div class="sb-menu" id="sb-menu"></div>
     </aside>
     <main class="lesson-main" id="lesson-main"></main>
+  <!-- Ejemplo de video educativo en la primera lección de Python -->
+  <div id="video-leccion-python" style="display:none;margin:32px auto;max-width:640px;">
+    <h3 style="color:#ffe066;text-align:center;margin-bottom:12px;">Video recomendado: ¿Qué es una variable en Python?</h3>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 2px 16px #0003;">
+      <iframe src="https://www.youtube.com/embed/kqtD5dpn9C8" title="Variables en Python" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -175,14 +182,27 @@
 <script>
 // Mostrar/ocultar preview y contenido según login
 function actualizarVistaLogin(user) {
+  var preview = document.getElementById('preview-publico');
+  var privado = document.getElementById('contenido-privado');
+  var btnLogin = document.getElementById('btn-login-google');
+  var btnLogout = document.getElementById('btn-logout-google');
   if (user) {
-    document.getElementById('preview-publico').style.display = 'none';
-    document.getElementById('contenido-privado').style.display = 'block';
+    if (preview) preview.style.display = 'none';
+    if (privado) privado.style.display = 'block';
+    if (btnLogin) btnLogin.style.display = 'none';
+    if (btnLogout) btnLogout.style.display = 'inline-block';
   } else {
-    document.getElementById('preview-publico').style.display = 'block';
-    document.getElementById('contenido-privado').style.display = 'none';
+    if (preview) preview.style.display = 'block';
+    if (privado) privado.style.display = 'none';
+    if (btnLogin) btnLogin.style.display = 'inline-block';
+    if (btnLogout) btnLogout.style.display = 'none';
   }
 }
+</body>
+<!-- Copyright fijo al fondo -->
+<footer style="width:100vw;text-align:center;padding:18px 0 12px 0;background:#101010;color:#ffe066;position:fixed;left:0;bottom:0;z-index:999;font-size:14px;letter-spacing:.5px;box-shadow:0 -2px 12px #0003;">
+  © 2026 DevLearn. Inspirado en la experiencia de aprendizaje de Cursa y plataformas líderes. Todos los derechos reservados.
+</footer>
 // Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDtTvwL2w_kh7peLx1S6uIA_6-8jCjTxv8",
