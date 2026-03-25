@@ -334,38 +334,13 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:15px
 </div>
 
 <script>
-// Configuración de Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyDtTvwL2w_kh7peLx1S6uIA_6-8jCjTxv8",
-  authDomain: "cursos-3f2ed.firebaseapp.com",
-  projectId: "cursos-3f2ed",
-  storageBucket: "cursos-3f2ed.firebasestorage.app",
-  messagingSenderId: "318824179662",
-  appId: "1:318824179662:web:1ef4fb35e502347ebd2d9f",
-  measurementId: "G-K15LK2NHQE"
-};
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-
+// Eliminar login y dependencias externas. Todo funciona local y sin registro.
 function loginWithGoogle() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider)
-    .then(result => {
-      const user = result.user;
-      alert('Bienvenido, ' + user.displayName);
-      // Aquí puedes mostrar contenido solo para usuarios logueados
-    })
-    .catch(error => {
-      alert('Error al iniciar sesión: ' + error.message);
-    });
+  alert('¡No necesitas iniciar sesión! Todo el contenido es gratis y sin registro.');
 }
 
 function logout() {
-  auth.signOut().then(() => {
-    alert('Sesión cerrada');
-    // Aquí puedes ocultar el contenido privado
-  });
+  alert('No hay sesión activa.');
 }
 
 // ═══════════════════════════════════════════
