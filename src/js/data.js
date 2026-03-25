@@ -30,3 +30,8 @@ window.LESSONS = {
     content: '<h2>Variables en JavaScript</h2><p>Aprende la diferencia entre <b>var</b>, <b>let</b> y <b>const</b>.</p>'
   }
 };
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<script src="src/js/data.js"></script>
+<script src="src/js/app.js"></script>
