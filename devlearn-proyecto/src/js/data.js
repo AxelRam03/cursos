@@ -2,7 +2,7 @@
 //  DevLearn — data.js  (cursos y lecciones)
 // ═══════════════════════════════════════════
 
-const COURSES = [
+window.COURSES = [
   {
     id:'python', title:'Python', icon:'🐍', tag:'Backend', category:'backend',
     color:'#4ade80', tagBg:'rgba(74,222,128,.12)', tagColor:'#4ade80',
@@ -220,7 +220,7 @@ const COURSES = [
 // ═══════════════════════════════════════════
 //  LESSON CONTENT
 // ═══════════════════════════════════════════
-const LESSONS = {
+window.LESSONS = {
 
   /* ──────── PYTHON ──────── */
   'py-01': {
@@ -232,32 +232,212 @@ const LESSONS = {
 <p>Una <strong>variable</strong> es un nombre que señala a un espacio en la memoria de tu computadora. Piensa en ella como una etiqueta pegada a un cajón: tú eliges el nombre, y adentro guardas el valor.</p>
 <p>Python es de <strong>tipado dinámico</strong>: no necesitas declarar el tipo de dato, Python lo detecta automáticamente cuando asignas el valor.</p>
 <h3>Los 5 tipos primitivos de Python</h3>
+<ul>
+<li><strong>int</strong>: números enteros (10, -5, 2024)</li>
+<li><strong>float</strong>: números decimales (3.14, -0.5)</li>
+<li><strong>str</strong>: texto ("Hola", 'Mundo')</li>
+<li><strong>bool</strong>: verdadero o falso (True, False)</li>
+<li><strong>NoneType</strong>: ausencia de valor (None)</li>
+</ul>
 </div>`,
     code1: { file:'variables.py', starter:
-`# ── 1. Entero (int) ──
+`# ── Tipos de datos en Python ──
+
+# int: números enteros
 edad = 25
 año = 2025
 
-# ── 2. Decimal (float) ──
-precio = 19.99
-pi = 3.14159
+# float: números decimales
+</div>`,
+    code2: { file:'conversion.py', starter:
+`# Convertir entre tipos
+numero_texto = "42"
+numero_entero = int(numero_texto)   # "42" → 42
+# Por eso debes convertir:
 
-# ── 3. Texto (str) ──
-nombre = "Carlos"
-saludo = 'Hola mundo'   # comillas simples también funcionan
+};
+        desc: 'Crea variables con tu nombre, edad, ciudad y si eres estudiante (bool). Luego imprímelas en una sola línea usando f-string.',
+        starter: `# Tu código aquí
+nombre = ___
+edad = ___
+ciudad = ___
+es_estudiante = ___
 
-# ── 4. Booleano (bool) ──
-activo = True
-es_admin = False
+print(f"...")`,
+        solution: `nombre = "Ana"\nedad = 22\nciudad = "CDMX"\nes_estudiante = True\nprint(f"Soy {nombre}, tengo {edad} años, vivo en {ciudad}. ¿Estudiante? {es_estudiante}")`
+      },
+      { num: 2, title: 'Calculadora de IMC', diff: 'med',
+        desc: 'Pide al usuario su peso (kg) y altura (m). Calcula el IMC = peso / altura². Imprime el resultado con 2 decimales.',
+        starter: `peso = float(input("Peso en kg: "))
+altura = float(input("Altura en m: "))
+imc = ___
+print(f"Tu IMC es: {imc:.2f}")`,
+        solution: `peso = float(input("Peso en kg: "))\naltura = float(input("Altura en m: "))\nimc = peso / (altura ** 2)\nprint(f"Tu IMC es: {imc:.2f}")`
+      }
+    ]
+  },
 
-# ── 5. Nada / vacío (NoneType) ──
-dato = None
+  /* ──────── JAVASCRIPT ──────── */
+  'js-01': {
+    title: 'Variables en JavaScript: var, let, const',
+    subtitle: 'Entiende las diferencias entre las tres formas de declarar variables y cuándo usar cada una.',
+    badges: ['ES6+', '~25 min', 'Principiante'],
+    html: `<div class="prose"><p>JavaScript tiene tres palabras clave para declarar variables. Usarlas correctamente es lo primero que diferencia a un principiante de alguien que sabe lo que hace.</p><h3>let — la opción moderna para variables que cambian</h3></div>`,
+    code1: { file:'variables.js', starter:
+`// let — puede cambiar, scope de bloque
+let edad = 25;
+edad = 26;  // ✅ permitido
 
-# Verificar el tipo de cualquier variable
-print(type(edad))      # <class 'int'>
-print(type(precio))    # <class 'float'>
-print(type(nombre))    # <class 'str'>
-print(type(activo))    # <class 'bool'>
+// const — no puede reasignarse
+const PI = 3.14159;
+// PI = 3;  // ❌ TypeError
+
+// var — evítalo (scope raro, iza declaraciones)
+// var nombre = "Ana";  // funciona pero no recomendado
+
+// Tipos en JavaScript
+let numero = 42;          // number
+let decimal = 3.14;       // number (mismo tipo)
+let texto = "Hola";       // string
+let activo = true;        // boolean
+let vacio = null;         // null
+let sinDefinir;           // undefined
+let obj = { x: 1 };      // object
+
+// typeof para saber el tipo
+console.log(typeof numero);   // "number"
+console.log(typeof texto);    // "string"
+
+// Template literals (como f-strings en Python)
+let nombre = "Carlos";
+console.log(\`Hola, \${nombre}! Tienes \${edad} años.\`);`
+    },
+    callout: { type: 'warn', text: 'Regla práctica: usa const por defecto. Solo cambia a let cuando sepas que la variable va a cambiar. Nunca uses var en código nuevo.' },
+    exercises: [
+      { num: 1, title: 'Perfil de usuario', diff: 'easy',
+        desc: 'Declara variables con const y let para: nombre (no cambia), edad (puede cambiar), email (no cambia). Luego "cumple años" sumando 1 a edad e imprime todo con template literals.',
+        starter: `const nombre = ___
+let edad = ___
+const email = ___
+
+// Cumpleaños
+edad = ___
+
+console.log(\`\${nombre} (\${email}) ahora tiene \${edad} años\`)`,
+        solution: `const nombre = "Ana"\nlet edad = 25\nconst email = "ana@mail.com"\nedad = edad + 1\nconsole.log(\`\${nombre} (\${email}) ahora tiene \${edad} años\`)`
+      }
+    ]
+  },
+
+  /* ──────── HTML & CSS ──────── */
+  'html-01': {
+    title: 'Estructura y Semántica HTML5',
+    subtitle: 'Aprende a crear páginas web bien estructuradas y accesibles.',
+    badges: ['HTML5', '~20 min', 'Principiante'],
+    html: `<div class="prose"><p>HTML es el lenguaje de marcado que da estructura a la web. Usar etiquetas semánticas ayuda a que tu sitio sea accesible y fácil de mantener.</p><h3>Ejemplo de estructura básica</h3></div>`,
+    code1: { file:'index.html', starter:
+`<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mi primera página</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido a DevLearn</h1>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Cursos</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Sobre el curso</h2>
+        <p>Aprende HTML desde cero.</p>
+      </section>
+    </main>
+    <footer>
+      <small>&copy; 2026 DevLearn</small>
+    </footer>
+  </body>
+</html>`
+    },
+    callout: { type: 'tip', text: 'Siempre usa etiquetas semánticas: <header>, <nav>, <main>, <section>, <footer>. Mejoran SEO y accesibilidad.' },
+    exercises: [
+      { num: 1, title: 'Tu primera web', diff: 'easy',
+        desc: 'Crea una página HTML con título, encabezado principal y un párrafo de bienvenida.',
+        starter: `<!-- Tu código aquí -->
+<html>
+  <head>
+    <title>___</title>
+  </head>
+  <body>
+    <h1>___</h1>
+    <p>___</p>
+  </body>
+</html>`,
+        solution: `<html>\n  <head>\n    <title>Mi web</title>\n  </head>\n  <body>\n    <h1>Hola mundo</h1>\n    <p>Bienvenido a mi web</p>\n  </body>\n</html>`
+      }
+    ]
+  },
+
+  /* ──────── SQL ──────── */
+  'sql-01': {
+    title: 'SELECT, WHERE y ORDER BY',
+    subtitle: 'Las tres cláusulas que usarás en el 80% de tus consultas SQL.',
+    badges: ['SQL', '~35 min', 'Principiante'],
+    html: `<div class="prose"><p>SQL (Structured Query Language) es el lenguaje para hablar con bases de datos relacionales. <strong>SELECT</strong> es la instrucción más usada: le dice a la base de datos qué datos quieres.</p><h3>Sintaxis básica</h3></div>`,
+    code1: { file:'consultas.sql', starter:
+`-- Seleccionar todas las columnas
+SELECT * FROM empleados;
+
+-- Seleccionar columnas específicas
+SELECT nombre, salario, departamento
+FROM empleados;
+
+-- WHERE: filtrar filas
+SELECT nombre, salario
+FROM empleados
+WHERE salario > 50000;
+
+-- AND / OR en WHERE
+SELECT nombre, salario
+FROM empleados
+WHERE departamento = 'TI'
+  AND salario > 40000;
+
+-- ORDER BY: ordenar resultados
+SELECT nombre, salario
+FROM empleados
+ORDER BY salario DESC;   -- DESC = mayor a menor
+
+-- LIMIT: traer solo N filas
+SELECT nombre, salario
+FROM empleados
+ORDER BY salario DESC
+LIMIT 5;   -- Top 5 mejor pagados
+
+-- LIKE: búsqueda de texto
+SELECT * FROM empleados
+WHERE nombre LIKE 'Mar%';  -- empieza con "Mar"`
+    },
+    callout: { type: 'info', text: 'SQL no es case-sensitive para las palabras clave (select = SELECT), pero por convención se escriben en MAYÚSCULAS para diferenciarlas de los nombres de tablas y columnas.' },
+    exercises: [
+      { num: 1, title: 'Filtrar productos', diff: 'easy',
+        desc: 'Escribe una consulta que traiga nombre y precio de la tabla "productos", solo donde el precio sea menor a 100, ordenados de menor a mayor precio.',
+        starter: `-- Tu consulta aquí
+SELECT ___, ___
+FROM ___
+WHERE ___ < 100
+ORDER BY ___ ___;`,
+        solution: `SELECT nombre, precio\nFROM productos\nWHERE precio < 100\nORDER BY precio ASC;`
+      }
+    ]
+  },
+
+  // ...puedes seguir agregando más lecciones y cursos aquí...
+
+};
 
 # ── f-strings: la forma moderna de imprimir ──
 print(f"Hola, {nombre}. Tienes {edad} años y el precio es ${precio}")` },

@@ -11,28 +11,36 @@
 </head>
 <body>
 
-<!-- NAV -->
+
+
+<!-- NAV PRINCIPAL UNICO -->
 <nav id="navbar">
   <div class="nav-logo" onclick="showHome()">dev<span>/</span>learn</div>
   <div class="nav-links">
     <button class="nav-link active" id="nav-cursos" onclick="showHome();setNav(this)">Cursos</button>
     <button class="nav-link" id="nav-ruta" onclick="showRuta();setNav(this)">Mi Ruta</button>
+    <button class="nav-link" id="nav-notif" onclick="showNotif();setNav(this)">Notificaciones IA</button>
   </div>
-  <button class="nav-cta" onclick="showHome()">Empezar gratis →</button>
+  <div style="margin-left:auto;display:flex;gap:8px">
+    <button onclick="loginWithGoogle()" id="btn-login-google" style="padding:8px 16px;background:#fff;color:#222;border-radius:6px;border:none;font-weight:600;cursor:pointer;">Iniciar sesión con Google</button>
+    <button onclick="logout()" id="btn-logout-google" style="padding:8px 16px;background:#ffe066;color:#222;border-radius:6px;border:none;font-weight:600;cursor:pointer;display:none;">Cerrar sesión</button>
+    <button class="nav-cta" onclick="loginWithGoogle()">Empezar gratis →</button>
+  </div>
 </nav>
 
+
+
+<!-- PREVIEW SOLO PARA NO LOGUEADOS -->
+<div id="preview-publico" style="display:block;max-width:600px;margin:80px auto 0 auto;padding:32px 24px;background:#181818;border-radius:16px;text-align:center;box-shadow:0 2px 24px #0002;">
+  <h2 style="font-size:2.4rem;color:#ffe066;margin-bottom:18px;letter-spacing:-1px;font-weight:700;">DevLearn</h2>
+  <p style="color:#e8e8e8;font-size:1.18rem;margin-bottom:22px;line-height:1.7;max-width:420px;margin-left:auto;margin-right:auto;">Aprende a programar gratis.<br>Accede a <b>cursos, ejercicios y notificaciones IA</b>.<br><span style="color:#ffe066;font-weight:600;">Inicia sesión para ver el contenido completo.</span></p>
+  <button class="nav-cta" style="font-size:1.1rem;padding:14px 36px;border-radius:10px;background:#ffe066;color:#181818;font-weight:700;box-shadow:0 2px 12px #ffe06633;transition:.2s;" onclick="loginWithGoogle()">Empezar gratis →</button>
+</div>
+
+<!-- CONTENIDO SOLO PARA LOGUEADOS -->
+<div id="contenido-privado" style="display:none;">
 <!-- HOME -->
 <div id="view-home" class="view active">
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-badge"><span class="pulse"></span> 100% Gratuito — Sin registro</div>
-    <h1>Aprende a <em>programar</em><br>de cero a senior.</h1>
-    <p class="hero-sub">Cursos completos con ejercicios, editor de código integrado y certificados. 9 cursos, más de 300 ejercicios, todo gratis.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="scrollToCourses()">Ver todos los cursos →</button>
-      <button class="btn-ghost" onclick="openCourse('python')">Empezar con Python</button>
-    </div>
-    <div class="hero-stats">
       <div class="stat"><div class="stat-n">9</div><div class="stat-l">Cursos</div></div>
       <div class="stat"><div class="stat-n">120+</div><div class="stat-l">Lecciones</div></div>
       <div class="stat"><div class="stat-n">300+</div><div class="stat-l">Ejercicios</div></div>
@@ -58,48 +66,29 @@
 </div>
 
 <!-- RUTA VIEW -->
-<div id="view-ruta" class="view">
-  <div class="ruta-container">
-    <h2 class="ruta-title">Mi Ruta de Aprendizaje</h2>
-    <p class="ruta-sub">Tu progreso guardado en este navegador.</p>
-    <div id="ruta-grid"></div>
-  </div>
-</div>
 
-<!-- COURSE VIEW -->
-<div id="view-course" class="view">
-  <div class="course-layout">
-    <aside class="sidebar" id="sidebar">
-      <div class="sb-header">
-        <button class="back-btn" onclick="showHome()">← Volver</button>
-        <div class="sb-title" id="sb-title">—</div>
-        <div class="sb-progress-text" id="sb-prog-text">0 / 0 lecciones</div>
-        <div class="sb-bar"><div class="sb-fill" id="sb-fill"></div></div>
+<!-- NOTIFICACIONES IA VIEW -->
+<div id="view-notif" class="view">
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-icon">🤖</div>
+      <div>
+        <div class="panel-title">Notificaciones IA</div>
+        <div class="panel-sub">Recibe correos personalizados generados por inteligencia artificial según tu progreso</div>
       </div>
-      <div class="sb-menu" id="sb-menu"></div>
-    </aside>
-    <main class="lesson-main" id="lesson-main"></main>
-  </div>
-</div>
-
-<!-- CERT MODAL -->
-<div id="cert-modal" onclick="if(event.target===this)closeCert()">
-  <div class="cert-paper">
-    <div class="cert-border"></div>
-    <button class="cert-close" onclick="closeCert()">✕</button>
-    <div class="cert-top">Certificado de Finalización</div>
-    <div class="cert-logo">dev/learn</div>
-    <div class="cert-body">Ha completado satisfactoriamente el curso</div>
-    <div class="cert-course" id="cert-name">—</div>
-    <div class="cert-desc">Este certificado acredita que el participante completó todas las lecciones y ejercicios prácticos del curso con dedicación.</div>
-    <div class="cert-footer">
-      <div class="cert-date" id="cert-date">—</div>
-      <button class="cert-dl" onclick="closeCert()">✓ Cerrar</button>
     </div>
-  </div>
-</div>
 
+<!-- SCRIPTS UNICOS AL FINAL -->
 <script src="src/js/data.js"></script>
 <script src="src/js/app.js"></script>
+<!-- Firebase App (core) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
 </body>
+<!-- Copyright fijo al fondo -->
+<footer style="width:100vw;text-align:center;padding:18px 0 12px 0;background:#101010;color:#ffe066;position:fixed;left:0;bottom:0;z-index:999;font-size:14px;letter-spacing:.5px;box-shadow:0 -2px 12px #0003;">
+  <span style="font-size:15px;font-weight:600;letter-spacing:0.5px;">© 2026 DevLearn</span> &nbsp;|&nbsp; Inspirado en la experiencia de aprendizaje de Cursa y plataformas líderes. Todos los derechos reservados.
+</footer>
 </html>

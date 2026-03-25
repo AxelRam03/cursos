@@ -1,3 +1,80 @@
+// ══════════════════════════════════════════
+//  LOGIN GOOGLE Y FIREBASE (migrado de index.html)
+// ══════════════════════════════════════════
+
+// Mostrar/ocultar preview y contenido según login, y mostrar errores claros
+window.actualizarVistaLogin = function(user, errorMsg) {
+  var preview = document.getElementById('preview-publico');
+  var privado = document.getElementById('contenido-privado');
+  var btnLogin = document.getElementById('btn-login-google');
+  var btnLogout = document.getElementById('btn-logout-google');
+  var errorDiv = document.getElementById('login-error-msg');
+  if (!errorDiv) {
+    errorDiv = document.createElement('div');
+    errorDiv.id = 'login-error-msg';
+    errorDiv.style = 'color:#f87171;background:#1a1a1a;padding:12px 18px;margin:18px auto 0 auto;max-width:420px;border-radius:8px;text-align:center;font-weight:600;display:none;';
+    document.body.insertBefore(errorDiv, document.body.firstChild);
+  }
+  if (user) {
+    if (preview) preview.style.display = 'none';
+    if (privado) privado.style.display = 'block';
+    if (btnLogin) btnLogin.style.display = 'none';
+    if (btnLogout) btnLogout.style.display = 'inline-block';
+    errorDiv.style.display = 'none';
+  } else {
+    if (preview) preview.style.display = 'block';
+    if (privado) privado.style.display = 'none';
+    if (btnLogin) btnLogin.style.display = 'inline-block';
+    if (btnLogout) btnLogout.style.display = 'none';
+    if (errorMsg) {
+      errorDiv.textContent = errorMsg;
+      errorDiv.style.display = 'block';
+    } else {
+      errorDiv.style.display = 'none';
+    }
+  }
+}
+
+// Configuración de Firebase
+window.firebaseConfig = {
+  apiKey: "AIzaSyDtTvwL2w_kh7peLx1S6uIA_6-8jCjTxv8",
+  authDomain: "cursos-3f2ed.firebaseapp.com",
+  projectId: "cursos-3f2ed",
+  storageBucket: "cursos-3f2ed.firebasestorage.app",
+  messagingSenderId: "318824179662",
+  appId: "1:318824179662:web:1ef4fb35e502347ebd2d9f",
+  measurementId: "G-K15LK2NHQE"
+};
+if (window.firebase && !window.firebase.apps?.length) {
+  window.firebase.initializeApp(window.firebaseConfig);
+}
+window.auth = window.firebase?.auth();
+
+window.loginWithGoogle = function() {
+  const provider = new window.firebase.auth.GoogleAuthProvider();
+  window.auth.signInWithPopup(provider)
+    .then(result => {
+      const user = result.user;
+      window.actualizarVistaLogin(user);
+      alert('Bienvenido, ' + user.displayName);
+    })
+    .catch(error => {
+      window.actualizarVistaLogin(null, 'Error al iniciar sesión: ' + error.message);
+    });
+}
+
+window.logout = function() {
+  window.auth.signOut().then(() => {
+    window.actualizarVistaLogin(null);
+    alert('Sesión cerrada');
+  });
+}
+
+if (window.auth) {
+  window.auth.onAuthStateChanged(user => {
+    window.actualizarVistaLogin(user);
+  });
+}
 // ═══════════════════════════════════════════
 //  DevLearn — app.js
 // ═══════════════════════════════════════════
